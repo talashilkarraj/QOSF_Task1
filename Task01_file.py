@@ -104,27 +104,27 @@ def grover_circuit_2qubits(ckt,states):
     ckt.h([0,1])
 
     if state00 in states and state01 in states:
-        oracle(state00, state01, ckt)
+        oracle_2qubits(state00, state01, ckt)
         diffuser_2qubits(state00, state01, ckt)
 
     if state01 in states and state11 in states:
-        oracle(state01, state11, ckt)
+        oracle_2qubits(state01, state11, ckt)
         diffuser_2qubits(state01, state11, ckt) 
     
     if state11 in states and state10 in states:
-        oracle(state11, state10, ckt)
+        oracle_2qubits(state11, state10, ckt)
         diffuser_2qubits(state11, state10, ckt)
     
     if state10 in states and state00 in states:
-        oracle(state10, state00, ckt)
+        oracle_2qubits(state10, state00, ckt)
         diffuser_2qubits(state10, state00, ckt)
     
     if state00 in states and state11 in states:
-        oracle(state00, state11, ckt)
+        oracle_2qubits(state00, state11, ckt)
         diffuser_2qubits(state00, state11, ckt)
 
     if state10 in states and state01 in states:
-        oracle(state10, state01, ckt)
+        oracle_2qubits(state10, state01, ckt)
         diffuser_2qubits(state10, state01, ckt)
 
     # universal diffuser for qubits>3
@@ -189,11 +189,11 @@ def diffuser_2qubits(stateAA,stateBB,circuit):
 
 
 """
-Function: oracle
+Function: oracle 2qubits
 Parameters: circuit
 Returns: No return parameter
 """
-def oracle(stateAA,stateBB,circuit):
+def oracle_2qubits(stateAA,stateBB,circuit):
     if stateAA is state00 and stateBB is state01:
         circuit.z(1)
         circuit.x(1)
